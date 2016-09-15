@@ -60,8 +60,10 @@ server {
 " > /etc/nginx/sites-available/$USERNAME.conf
 ln -s /etc/nginx/sites-available/$USERNAME.conf /etc/nginx/sites-enabled/$USERNAME.conf
 
-service nginx restart
 service php7.0-fpm restart
+echo "php7.0-fpm restart"
+service nginx restart
+echo "nginx restart"
 
 echo "Enter MySQL root password:"
 read ROOTPASS
