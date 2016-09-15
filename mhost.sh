@@ -46,7 +46,7 @@ server {
 	location ~ \.php$ {
 		include			fastcgi_params;
 		fastcgi_param	SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
-		fastcgi_pass	unix:/var/run/php7.0-fpm.sock;
+		fastcgi_pass	unix:/var/run/php/php7.0-fpm.sock;
 	}
 	location ~* ^.+\.(jpg|jpeg|gif|css|png|js|ico|bmp)$ {
 	   access_log		off;
