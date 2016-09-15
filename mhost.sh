@@ -66,10 +66,10 @@ service nginx restart
 echo "nginx restart"
 
 echo "Enter MySQL root password:"
-read ROOTPASS
+read -s ROOTPASS
 
 echo "Enter password for new DB:"
-read MYSQLPASS
+read -s MYSQLPASS
 
 echo "Creating database"
 
@@ -79,4 +79,3 @@ Q3="FLUSH PRIVILEGES;"
 SQL="${Q1}${Q2}${Q3}"
 	
 mysql -uroot --password=$ROOTPASS -e "$SQL"
-
