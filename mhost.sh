@@ -15,7 +15,7 @@ unzip 2.x.zip
 mv -R /var/www/$USERNAME/revolution-2.x /var/www/$USERNAME/public
 cd public
 rm -rf _build
-rm -f .gitignore .travis.yml .editorconfig README.md
+rm -f .gitignore .travis.yml .editorconfig README.md PULL_REQUEST_TEMPLATE.md ht.access CONTRIBUTING.md
 chmod -R 755 /var/www/$USERNAME/
 chown www-data:www-data /var/www/$USERNAME
 
