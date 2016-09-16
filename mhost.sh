@@ -9,7 +9,13 @@ read DOMAIN
 mkdir /var/www/$USERNAME
 mkdir /var/www/$USERNAME/tmp
 mkdir /var/www/$USERNAME/logs
-mkdir /var/www/$USERNAME/public
+cd /var/www/$USERNAME
+wget https://github.com/modxcms/revolution/archive/2.x.zip
+unzip 2.x.zip
+mv -R /var/www/$USERNAME/revolution-2.x /var/www/$USERNAME/public
+cd public
+rm -rf _build
+rm -f .gitignore .travis.yml .editorconfig README.md
 chmod -R 755 /var/www/$USERNAME/
 chown www-data:www-data /var/www/$USERNAME
 
