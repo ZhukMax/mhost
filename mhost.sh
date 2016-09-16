@@ -22,7 +22,7 @@ then
 	mv -R /var/www/$USERNAME/revolution-2.x /var/www/$USERNAME/public
 	cd public
 	rm -rf _build
-	rm -f .gitignore .travis.yml .editorconfig README.md PULL_REQUEST_TEMPLATE.md ht.access CONTRIBUTING.md
+	rm -f .gitignore .travis.yml .editorconfig README.md PULL_REQUEST_TEMPLATE.md ht.access CONTRIBUTING.md ISSUE_TEMPLATE.md
 	cd ~
 elif [ $PROJECT == x ] || [$PROJECT == exists]
 then
