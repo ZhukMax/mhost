@@ -19,7 +19,8 @@ then
 	cd /var/www/$USERNAME
 	wget https://github.com/modxcms/revolution/archive/2.x.zip
 	unzip 2.x.zip
-	mv -R /var/www/$USERNAME/revolution-2.x /var/www/$USERNAME/public
+	mv /var/www/$USERNAME/revolution-2.x /var/www/$USERNAME/public
+	rm 2.x.zip
 	cd public
 	rm -rf _build
 	rm -f .gitignore .travis.yml .editorconfig README.md PULL_REQUEST_TEMPLATE.md ht.access CONTRIBUTING.md ISSUE_TEMPLATE.md
@@ -34,7 +35,7 @@ then
 fi
 
 chmod -R 755 /var/www/$USERNAME/
-chown www-data:www-data /var/www/$USERNAME
+chown -R www-data:www-data /var/www/$USERNAME
 
 echo "Creating vhost file"
 echo "
