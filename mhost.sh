@@ -6,26 +6,15 @@ read USERNAME
 echo "Enter domain"
 read DOMAIN
  
-echo "Blank (b), new (n) or exists (x) project?"
-echo "default - blank (b):"
+echo "New (n) or exists (x) project?"
+echo "default - new (n):"
 read PROJECT
 
 mkdir /var/www/$USERNAME
 mkdir /var/www/$USERNAME/tmp
 mkdir /var/www/$USERNAME/logs
 
-if [ $PROJECT == n ] || [$PROJECT == new]
-then
-	cd /var/www/$USERNAME
-	wget https://github.com/modxcms/revolution/archive/2.x.zip
-	unzip 2.x.zip
-	mv /var/www/$USERNAME/revolution-2.x /var/www/$USERNAME/public
-	rm 2.x.zip
-	cd public
-	rm -rf _build
-	rm -f .gitignore .travis.yml .editorconfig README.md PULL_REQUEST_TEMPLATE.md ht.access CONTRIBUTING.md ISSUE_TEMPLATE.md
-	cd ~
-elif [ $PROJECT == x ] || [$PROJECT == exists]
+if [ $PROJECT == x ] || [$PROJECT == exists]
 then
 	cd /var/www/$USERNAME
 	echo "Enter url to your git-repository:"
