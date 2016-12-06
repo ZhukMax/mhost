@@ -21,6 +21,8 @@ then
 	read REPO
 	git clone $REPO
 	cd ~
+else
+	mkdir /var/www/$USERNAME/public
 fi
 
 chmod -R 755 /var/www/$USERNAME/
