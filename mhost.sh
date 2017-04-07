@@ -14,7 +14,7 @@ mkdir /var/www/$USERNAME
 mkdir /var/www/$USERNAME/tmp
 mkdir /var/www/$USERNAME/logs
 
-if [ $PROJECT == x ] || [$PROJECT == exists]
+if [ $PROJECT = x ] || [$PROJECT = exists]
 then
 	cd /var/www/$USERNAME
 	echo "Enter url to your git-repository:"
