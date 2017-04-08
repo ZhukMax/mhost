@@ -1,20 +1,41 @@
 #!/bin/bash
 
+# Keys for script
+while [ 1 ] ; do 
+   if [ "$1" = "--blank" ] ; then 
+      PROJECT="b" 
+   elif [ "$1" = "-b" ] ; then 
+      PROJECT="b"
+   elif [ "$1" = "--new" ] ; then 
+      PROJECT="n" 
+   elif [ "$1" = "-n" ] ; then 
+      PROJECT="n"
+   elif [ "$1" = "--exists" ] ; then 
+      PROJECT="x" 
+   elif [ "$1" = "-x" ] ; then 
+      PROJECT="x"
+   elif [ "$1" = "--delete" ] ; then
+      DELETE=1
+   elif [ -z "$1" ] ; then 
+      break
+   else 
+      echo "Error: unknown key" 1>&2 
+      exit 1 
+   fi 
+   shift 
+done
+
 echo "Enter username for site and database:"
 read USERNAME
  
 echo "Enter domain"
 read DOMAIN
- 
-echo "New (n) or exists (x) project?"
-echo "default - new (n):"
-read PROJECT
 
 mkdir /var/www/$USERNAME
 mkdir /var/www/$USERNAME/tmp
 mkdir /var/www/$USERNAME/logs
 
-if [ $PROJECT = x ] || [$PROJECT = exists]
+if [ $PROJECT = x ]
 then
 	cd /var/www/$USERNAME
 	echo "Enter url to your git-repository:"
