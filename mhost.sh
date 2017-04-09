@@ -1,5 +1,23 @@
 #!/bin/bash
 
+function delete() {
+	echo "Enter project name for delete:"
+	read USERNAME
+
+	echo "Enter DataBase root password:"
+	read -s ROOTPASS
+	
+	mysql -uroot --password=$ROOTPASS -e "DROP USER $USERNAME@localhost"
+	mysql -uroot --password=$ROOTPASS -e "DROP DATABASE $USERNAME"
+	
+	rm -f /etc/nginx/sites-enabled/$USERNAME.conf
+	rm -f /etc/nginx/sites-available/$USERNAME.conf
+	rm -rf /var/www/$USERNAME
+
+	service nginx restart
+	service php7.0-fpm restart
+}
+
 # Keys for script
 while [ 1 ] ; do 
    if [ "$1" = "--blank" ] ; then 
@@ -15,7 +33,8 @@ while [ 1 ] ; do
    elif [ "$1" = "-x" ] ; then 
       PROJECT="x"
    elif [ "$1" = "--delete" ] ; then
-      DELETE=1
+      delete
+      exit 15
    elif [ -z "$1" ] ; then 
       break
    else 
